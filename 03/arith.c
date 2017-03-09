@@ -8,12 +8,10 @@ void *emalloc(size_t s){
     fprintf(stderr, "Memory allocation failed!\n");
     exit(EXIT_FAILURE);
   }
-
   return result;
 }
 
-int main(){
-  int *
+int main() {
 
   while(1 == scanf("%s\n", );)
   return EXIT_SUCCESS;
