@@ -1,0 +1,31 @@
+#zig zags upwards, ends up half way along and half way up
+#Expected output: 10 10
+. ENNE xxxx
+y SEWN x.!y
+x WEEE !!!!
+  NWES .yx!
+  NNNN     
+20
+
+#zig zags upwards, ends up half way along and half way up
+#Expected output: 500000 500000
+. ENNE xxxx
+y SEWN x.!y
+x WEEE !!!!
+! NWES .yx!
+1000000
+
+#move 20 steps north
+#Expected output: 0 20
+x NNNN xxxx
+y NNNN xxxx
+g NNNN xxxx
+h NNNN xxxx
+  NNNN xxxx
+0 NNNN xxxx
+20
+
+#around in a circle back to (0,0)
+#expected output: 0 0
+. ESWN xxxx
+4

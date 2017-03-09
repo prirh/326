@@ -1,6 +1,13 @@
-#First instruction
+#first
 . ENNE xxxx
 y SEWN x.!y
 x WEEE !!!!
 ! NWES .yx!
-1000000000
+100000
+
+#first
+. ENNE xxxx
+y SEWN x.!y
+x WEEE !!!!
+! NWES .yx!
+100000
