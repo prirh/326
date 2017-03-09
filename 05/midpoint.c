@@ -2,25 +2,41 @@
 #include <stdio.h>
 
 int half(int i) {
-    if(i >= 0) {
+    if(i % 2 == 0) {
         return i / 2;
-    } else {
+    } else if (i < 0){
         return i / 2 - 1;
     }
+    return i / 2;
+
+}
+
+int correct_midpoint(int x, int y){
+    return (x + y)/2;
 }
 
 int midpoint(int x, int y) {
-    int half_x = half(x);
-    int half_y = half(y);
+    if(x < 0 && y < 0) {
+        return -1 * midpoint(-x, -y);
+    }
 
-    if( (x % 2) != 0 && (y % 2) != 0){
-      return half_x + half_y + 1;
-  }
-  return half_x + half_y;
+    if(x % 2 != 0 && y % 2 != 0){
+        return half(x) + half(y) + 1;
+    }
+
+    if((x < 0 && x % 2 != 0) || (y < 0 && y % 2 != 0)) {
+        return half(x) + half(y) + 1;
+    }
+    return half(x) + half(y);
 
 }
-
-
     int main() {
-        printf("%d\n", midpoint(-2, 3));
+        int x, y;
+        while(scanf("%d %d", &x, &y) == 2){
+            if(correct_midpoint(x, y) != midpoint(x, y)){
+            printf("%d and %d\n", x, y);
+            printf("should be %d\n", correct_midpoint(x, y));
+            printf("but is %d\n\n", midpoint(x, y));
+        }
+        }
     }
