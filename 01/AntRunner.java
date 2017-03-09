@@ -28,7 +28,6 @@ public class AntRunner {
       } else {
           System.out.println();
       }
-
       System.out.println(scenario);
       Ant ant = new Ant(scenario);
       ant.run();
