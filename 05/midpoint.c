@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 int half(int i) {
-    if(i % 2 == 0) {
-        return i / 2;
-    } else if (i < 0){
-        return i / 2 - 1;
-    }
+    // if(i % 2 == 0) {
+    //     return i / 2;
+    // } else if (i < 0){
+    //     return i / 2 - 1;
+    // }
     return i / 2;
 
 }
@@ -24,7 +24,11 @@ int midpoint(int x, int y) {
         return half(x) + half(y) + 1;
     }
 
-    if((x < 0 && x % 2 != 0) || (y < 0 && y % 2 != 0)) {
+    if(x % 2 == 0 && y % 2 == 0) {
+        return half(x) + half(y);
+    }
+
+    if((x < 0 && x % 2 == 0) || (y < 0 && y % 2 == 0)) {
         return half(x) + half(y) + 1;
     }
     return half(x) + half(y);
