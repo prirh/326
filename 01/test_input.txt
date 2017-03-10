@@ -4,7 +4,6 @@
 y SEWN x.!y
 x WEEE !!!!
   NWES .yx!
-  NNNN     
 20
 
 #zig zags upwards, ends up half way along and half way up
@@ -13,19 +12,69 @@ x WEEE !!!!
 y SEWN x.!y
 x WEEE !!!!
 ! NWES .yx!
-1000000
-
-#move 20 steps north
-#Expected output: 0 20
-x NNNN xxxx
-y NNNN xxxx
-g NNNN xxxx
-h NNNN xxxx
-  NNNN xxxx
-0 NNNN xxxx
-20
+100000
 
 #around in a circle back to (0,0)
 #expected output: 0 0
 . ESWN xxxx
 4
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+1
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+2
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+3
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+4
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+5
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+6
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+7
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+8
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+9
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+10
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+11
+
+# Langtons ant
+w ESWN bbbb
+b WNES wwww
+9999999

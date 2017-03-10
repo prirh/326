@@ -38,7 +38,9 @@ public class Grid {
      *        tile is to change to
      **/
     public void setTile(int x, int y, char c) {
-        grid.put(x, new HashMap<Integer, Character>());
+        if(grid.get(x) == null){
+            grid.put(x, new HashMap<Integer, Character>());
+        }
         grid.get(x).put(y, c);
     }
 
@@ -56,5 +58,9 @@ public class Grid {
             return grid.get(x).get(y);
         }
         return initialState;
+    }
+
+    public String toString() {
+        return grid.toString();
     }
 }
