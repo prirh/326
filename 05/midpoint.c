@@ -20,10 +20,7 @@ int main() {
     int x, y;
 
     while(scanf("%d %d", &x, &y) == 2){
-        if(correct_midpoint(x, y) != midpoint(x, y)){
             printf("%d and %d\n", x, y);
-            printf("should be %d\n", correct_midpoint(x, y));
-            printf("but is %d\n\n", midpoint(x, y));
-        }
+            printf("midpoint is: %d\n\n", midpoint(x, y));
     }
 }
