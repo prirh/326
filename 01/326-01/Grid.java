@@ -59,8 +59,4 @@ public class Grid {
         }
         return initialState;
     }
-
-    public String toString() {
-        return grid.toString();
-    }
 }
