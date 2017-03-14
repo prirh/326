@@ -4,7 +4,6 @@
 y SEWN x.!y
 x WEEE !!!!
   NWES .yx!
-  NNNN     
 20
 
 #zig zags upwards, ends up half way along and half way up
@@ -15,14 +14,8 @@ x WEEE !!!!
 ! NWES .yx!
 1000000
 
-#move 20 steps north
-#Expected output: 0 20
-x NNNN xxxx
-y NNNN xxxx
-g NNNN xxxx
-h NNNN xxxx
-  NNNN xxxx
-0 NNNN xxxx
+a EWEE bbbb
+b WWWE aaaa
 20
 
 #around in a circle back to (0,0)
