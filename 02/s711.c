@@ -49,5 +49,6 @@ int main(){
             }
         }
     }
+    free(divisors);
     return EXIT_SUCCESS;
 }
