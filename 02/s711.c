@@ -1,18 +1,14 @@
+/**
+ * s711.c
+ * COSC326 Etude 2
+ * 711 Problem
+ *
+ * @author Rhianne Price
+ * March 2017
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-/**
- * Memory allcation with error checking.
- */
-void *emalloc(size_t s){
-  void *result = malloc(s);
-  if(result == NULL){
-    fprintf(stderr, "Memory allocation failed!");
-    exit(EXIT_FAILURE);
-  }
-  return result;
-}
 
 /**
  * Finds four prices that sum and multiply to $7.11.
@@ -26,7 +22,7 @@ int main(){
     double a, b, c, d;
     int i, j, k, divisor_count;
     int TOTAL = 711;
-    double *divisors = emalloc(TOTAL * sizeof divisors);
+    double *divisors = malloc(TOTAL * sizeof divisors);
     divisor_count = 0;
 
     /* Find all clean divisors of 7.11. */

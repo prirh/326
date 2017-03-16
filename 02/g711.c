@@ -1,18 +1,14 @@
+/**
+ * g711.c
+ * COSC326 Etude 2
+ * Generalised 711 Problem
+ *
+ * @author Rhianne Price
+ * March 2017
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-/**
- * Memory allcation with error checking.
- */
-void *emalloc(size_t s){
-  void *result = malloc(s);
-  if(result == NULL){
-    fprintf(stderr, "Memory allocation failed!");
-    exit(EXIT_FAILURE);
-  }
-  return result;
-}
 
 /**
  * Finds all sets of four prices that uniquely sum and multiply to each dollar
@@ -31,11 +27,11 @@ int main(){
     double total;
     double *divisors;
     double MAX = 999;
-    int *solution_count = emalloc(MAX * sizeof solution_count);
-    double **latest_solution = emalloc(MAX * sizeof latest_solution);
+    int *solution_count = malloc(MAX * sizeof solution_count);
+    double **latest_solution = malloc(MAX * sizeof latest_solution);
 
     for(total = 1; total < MAX; total++){
-        divisors = emalloc(total * sizeof divisors);
+        divisors = malloc(total * sizeof divisors);
         divisor_count = 0;
         for (i = 1; i <= total; i++)
         if ((int)(total * pow(10,6)) % i == 0) {
@@ -52,7 +48,7 @@ int main(){
                     if (a * b * c * d == (total * pow(10,6))){
                         solution_count[(int)total]++;
                         if(solution_count[(int)total] == 1){
-                            latest_solution[(int)total] = emalloc(4 * sizeof (double));
+                            latest_solution[(int)total] = malloc(4 * sizeof (double));
                             latest_solution[(int)total][0] = a;
                             latest_solution[(int)total][1] = b;
                             latest_solution[(int)total][2] = c;
