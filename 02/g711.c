@@ -11,6 +11,18 @@
 #include <math.h>
 
 /**
+ * Memory allocation with error checking, exits if memory allocation fails.
+ */
+void *emalloc(size_t s){
+  void *result = malloc(s);
+  if(NULL == result){
+    fprintf(stderr, "Memory allocation failed!\n");
+    exit(EXIT_FAILURE);
+  }
+  return result;
+}
+
+/**
  * Finds all sets of four prices that uniquely sum and multiply to each dollar
  * amount between $0.00 and $9.99.
  *
@@ -27,11 +39,11 @@ int main(){
     double total;
     double *divisors;
     double MAX = 999;
-    int *solution_count = malloc(MAX * sizeof solution_count);
-    char **first_solution = malloc(MAX * sizeof first_solution);
+    int *solution_count = emalloc(MAX * sizeof solution_count);
+    char **first_solution = emalloc(MAX * sizeof first_solution);
 
     for(total = 1; total < MAX; total++){
-        divisors = malloc(total * sizeof divisors);
+        divisors = emalloc(total * sizeof divisors);
         divisor_count = 0;
         for (i = 1; i <= total; i++)
         if ((int)(total * pow(10,6)) % i == 0) {
@@ -48,7 +60,7 @@ int main(){
                     if (a * b * c * d == (total * pow(10,6))){
                         solution_count[(int)total]++;
                         if(solution_count[(int)total] == 1){
-                            first_solution[(int)total] = malloc(128 * sizeof(char));
+                            first_solution[(int)total] = emalloc(128 * sizeof(char));
                             sprintf(first_solution[(int)total],
                                     "$%.2f = $%.2f + $%.2f + $%.2f + $%.2f",
                                     total/100, a/100, b/100, c/100, d/100);
