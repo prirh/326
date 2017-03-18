@@ -15,7 +15,7 @@
  * amount between $0.00 and $9.99.
  *
  * For each price between $0.00 and $9.99, it finds all divisors to 4 sf, checks
- * all 3 number combinations of those divisors for combos that sum to less than
+ * all combinations of 3 divisors for combos that sum to less than
  * the price, then checks if those 3 and the difference between the sum of the 3
  * and the price multiply to the price and stores the 4 numbers if it does.
  * It then keeps count of how many solutions there are for each price,
@@ -28,7 +28,7 @@ int main(){
     double *divisors;
     double MAX = 999;
     int *solution_count = malloc(MAX * sizeof solution_count);
-    double **latest_solution = malloc(MAX * sizeof latest_solution);
+    char **first_solution = malloc(MAX * sizeof first_solution);
 
     for(total = 1; total < MAX; total++){
         divisors = malloc(total * sizeof divisors);
@@ -48,11 +48,10 @@ int main(){
                     if (a * b * c * d == (total * pow(10,6))){
                         solution_count[(int)total]++;
                         if(solution_count[(int)total] == 1){
-                            latest_solution[(int)total] = malloc(4 * sizeof (double));
-                            latest_solution[(int)total][0] = a;
-                            latest_solution[(int)total][1] = b;
-                            latest_solution[(int)total][2] = c;
-                            latest_solution[(int)total][3] = d;
+                            first_solution[(int)total] = malloc(128 * sizeof(char));
+                            sprintf(first_solution[(int)total],
+                                    "$%.2f = $%.2f + $%.2f + $%.2f + $%.2f",
+                                    total/100, a/100, b/100, c/100, d/100);
                         }
                     }
                 }
@@ -62,16 +61,13 @@ int main(){
     }
     for(i = 0; i < MAX; i++) {
         if(solution_count[i] == 1) {
-            printf("$%.2f = $%.2f + $%.2f + $%.2f + $%.2f\n",
-            (double) i/100, latest_solution[i][0]/100,
-            latest_solution[i][1]/100, latest_solution[i][2]/100,
-            latest_solution[i][3]/100);
+            printf("%s\n", first_solution[i]);
             unique_solutions++;
         }
-        free(latest_solution[i]);
+        free(first_solution[i]);
     }
     printf("%d solutions\n", unique_solutions);
-    free(latest_solution);
+    free(first_solution);
     free(solution_count);
     return EXIT_SUCCESS;
 }

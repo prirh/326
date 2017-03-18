@@ -20,10 +20,10 @@
  */
 int main(){
     double a, b, c, d;
-    int i, j, k, divisor_count;
+    int i, j, k;
     int TOTAL = 711;
     double *divisors = malloc(TOTAL * sizeof divisors);
-    divisor_count = 0;
+    int divisor_count = 0;
 
     /* Find all clean divisors of 7.11. */
     for (i = 1; i <= TOTAL; i++) {
