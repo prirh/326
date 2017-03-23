@@ -11,7 +11,7 @@ float hyp(float x, float y) {
 
 // float hyp(float x, float y) {
 // float a = fabsf(x), b = fabsf(y); if (a > b) {
-// b = b/a;
+// b = b / a;
 // return sqrtf(1.0f + b*b)*a; } else
 // if (a < b) { a = a/b;
 // return sqrtf(1.0f + a*a)*b;
@@ -29,7 +29,7 @@ int main(void) {
     printf("%-10s %30.25e\n", "y:", y);
     printf("%-10s %30.25e\n", "z:", z);
     printf("%-10s %.25e\n\n", "error:", fabsf(hyp(x, y) - z)/z);
-    x /= 10.0f , y /= 10.0f, z /= 10.0f;
+    x *= 10.0f , y *= 10.0f, z *= 10.0f;
   }
   return 0;
 }
