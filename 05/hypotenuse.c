@@ -28,8 +28,8 @@ int main(void) {
     printf("%-10s %30.25e\n", "x:", x);
     printf("%-10s %30.25e\n", "y:", y);
     printf("%-10s %30.25e\n", "z:", z);
-    printf("%-10s %.25e\n\n", "error:", fabsf(hyp(x, y) - z)/z);
-    x *= 10.0f , y *= 10.0f, z *= 10.0f;
+    printf("%-10s %.25e\n\n", "error:", fabsf(hyp(x, y) - z));
+    x /= 10.0f , y /= 10.0f, z /= 10.0f;
   }
   return 0;
 }
