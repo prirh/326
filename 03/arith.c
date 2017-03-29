@@ -100,8 +100,9 @@ int main() {
     total = numbers[size = i - 1];
     scanf("%c\n", &order);
 
+    int possible_combos = pow(2, size - 1);
     operators = emalloc((size - 1) * sizeof operators);
-    for(i = 0; i < pow(2, size - 1); i++) {
+    for(i = 0; i < possible_combos; i++) {
       for(bits = 0; bits < size - 1; bits++) {
         operators[bits] = (i >> bits) & 1;
       }
