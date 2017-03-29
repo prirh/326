@@ -21,7 +21,7 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
   int i, j;
   int first = numbers[0];
   int sum;
-  int *working = emalloc(size * sizeof working);
+  int *working;
 
   if(size == 1 && numbers[0] == total){
     printf("%c %d\n", order, total);
@@ -50,13 +50,17 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
 
   /* Normal order - multiplication first. */
   if(order == 'N'){
+    working = emalloc(size * sizeof working);
     working[0] = numbers[0];
     for(i = 0; i < size - 1; i++) {
       working[i + 1] = numbers[i + 1];
       if(operators[i] == TIMES) {
         working[i + 1] = numbers[i + 1] * numbers[i];
         working[i] = 0;
-        if(working[i + 1] > total) return 0;
+        if(working[i + 1] > total){
+          free(working);
+          return 0;
+        }
       }
     }
     sum = working[0];
@@ -64,13 +68,17 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
     for(i = 1; i < size; i++) {
         sum += working[i];
     }
-    if(sum > total) return 0;
+    if(sum > total){
+      free(working);
+      return 0;
+    }
     if(sum == total) {
       printf("%c %d", order, first);
       for(j = 0; j < size - 1; j++){
         printf(" %c %d", operators[j] == PLUS ? '+' : '*', numbers[j + 1]);
       }
         printf("\n");
+        free(working);
         return 1;
       }
     }
