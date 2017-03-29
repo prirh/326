@@ -11,7 +11,7 @@
 void *emalloc(size_t s){
   void *result = malloc(s);
   if(NULL == result){
-    fprintf(stderr, "Memory allocation failed for size: %lu\n", s);
+    fprintf(stderr, "Memory allocation failed\n");
     exit(EXIT_FAILURE);
   }
   return result;
@@ -21,7 +21,7 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
   int i, j;
   int first = numbers[0];
   int sum;
-  int* working = emalloc(size * sizeof working);
+  int *working = emalloc(size * sizeof working);
 
   if(size == 1 && numbers[0] == total){
     printf("%c %d\n", order, total);
@@ -80,7 +80,7 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
 
 int main() {
   int maxSize = 25;
-  int *numbers = emalloc(maxSize * sizeof numbers);
+  int *numbers = emalloc(25 * sizeof numbers);
   int number, total, bits, size, possible_combos;
   int i;
   char order = '\0';
