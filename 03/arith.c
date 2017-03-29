@@ -5,11 +5,23 @@
 #define PLUS 0
 #define TIMES 1
 
+/**
+ * Memory allocation with error checking, exits if memory allocation fails.
+ */
+void *emalloc(size_t s){
+  void *result = malloc(s);
+  if(NULL == result){
+    fprintf(stderr, "Memory allocation failed for size: %lu\n", s);
+    exit(EXIT_FAILURE);
+  }
+  return result;
+}
+
 int solve(int *numbers, int size, int *operators, int total, char order) {
   int i, j;
   int first = numbers[0];
   int sum;
-  int* working = malloc(size * sizeof working);
+  int* working = emalloc(size * sizeof working);
 
   if(size == 1 & numbers[0] == total){
     printf("%c %d\n", order, total);
@@ -67,8 +79,10 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
 }
 
 int main() {
-  int *numbers = malloc(25 * sizeof numbers);
-  int number, total, i, bits, size;
+  int maxSize = 25;
+  int *numbers = emalloc(maxSize * sizeof numbers);
+  int number, total, bits, size;
+  int i;
   char order = '\0';
   int *operators;
   int solutions;
@@ -78,11 +92,15 @@ int main() {
     solutions = 0;
     while(1 == scanf("%d", &number)){
       numbers[i++] = number;
+      if(i == maxSize){
+        maxSize *= 2;
+        numbers = realloc(numbers, maxSize * sizeof numbers);
+      }
     }
     total = numbers[size = i - 1];
     scanf("%c\n", &order);
 
-    operators = malloc((size - 1) * sizeof operators);
+    operators = emalloc((size - 1) * sizeof operators);
     for(i = 0; i < pow(2, size - 1); i++) {
       for(bits = 0; bits < size - 1; bits++) {
         operators[bits] = (i >> bits) & 1;
