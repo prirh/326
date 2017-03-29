@@ -81,7 +81,7 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
 int main() {
   int maxSize = 25;
   int *numbers = emalloc(maxSize * sizeof numbers);
-  int number, total, bits, size;
+  int number, total, bits, size, possible_combos;
   int i;
   char order = '\0';
   int *operators;
@@ -100,7 +100,7 @@ int main() {
     total = numbers[size = i - 1];
     scanf("%c\n", &order);
 
-    int possible_combos = pow(2, size - 1);
+    possible_combos = pow(2, size - 1);
     operators = emalloc((size - 1) * sizeof operators);
     for(i = 0; i < possible_combos; i++) {
       for(bits = 0; bits < size - 1; bits++) {
