@@ -23,7 +23,7 @@ int solve(int *numbers, int size, int *operators, int total, char order) {
   int sum;
   int* working = emalloc(size * sizeof working);
 
-  if(size == 1 & numbers[0] == total){
+  if(size == 1 && numbers[0] == total){
     printf("%c %d\n", order, total);
     return 1;
   }
