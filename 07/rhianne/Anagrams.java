@@ -13,7 +13,7 @@ public class Anagrams {
   /* Dictionary indexed by word length, each set of words in sorted order. */
   private static TreeMap<Integer, TreeSet<String>> dictionary;
   /* All posible anagrams in sorted order including spaces. */
-  private static ArrayList<String> alphabeticalAnagrams;
+  private static TreeSet<String> alphabeticalAnagrams;
   /* Possible word combinations, indexed by words in the combination. */
   private static TreeMap<Integer, ArrayList<ArrayList<Integer>>> possibleCombos;
 
@@ -38,7 +38,7 @@ public class Anagrams {
     /* Initialise lists. */
     possibleCombos = new TreeMap<Integer, ArrayList<ArrayList<Integer>>>();
     dictionary = new TreeMap<Integer, TreeSet<String>>();
-    alphabeticalAnagrams = new ArrayList<String>();
+    alphabeticalAnagrams = new TreeSet<String>();
 
     /* Scan in and organise dictionary. */
     Scanner dictionaryScanner = new Scanner(System.in);
@@ -53,6 +53,16 @@ public class Anagrams {
 
     findCombos(sentenceToRearrange.length(), new ArrayList<Integer>());
     findAndPrintAnagrams();
+  }
+  /**
+   * Sorts a string into alphabetical order.
+   * @param word the string to be sorted.
+   * @return the sorted string.
+   */
+  private static String sortWord(String word) {
+    char[] sortedWord = word.toCharArray();
+    Arrays.sort(sortedWord);
+    return new String(sortedWord);
   }
 
   /**
@@ -90,7 +100,7 @@ public class Anagrams {
     Set<Integer> wordsCounts = possibleCombos.keySet();
     for(Integer count : wordsCounts) {
       for(ArrayList<Integer> combination : possibleCombos.get(count)) {
-        anagramsOfShape(combination, "", sentenceToRearrange);
+        anagramsOfShape(combination, "", sortWord(sentenceToRearrange));
       }
     }
   }
@@ -122,13 +132,14 @@ public class Anagrams {
     }
 
     if(combo.size() == 0 || bag.length() == 0) return;
+    outer:
     for(String word : dictionary.get(combo.get(0))){
       String newBag = bag;
       for(int i = 0; i < word.length(); i++) {
         if(newBag.contains(word.substring(i, i + 1))) {
           newBag = newBag.replaceFirst(word.substring(i, i + 1), "");
         } else {
-          break;
+          continue outer;
         }
       }
       ArrayList<Integer> newCombo = new ArrayList<>(combo);
