@@ -18,3 +18,13 @@ HTHTH
 ..HHHHTTT..  ..H TT..
 ..TTHHHHT..  ..T (TH)H
 ..THTxxHHHT.. TxxH H(HT)
+
+..HHHTTT..
+
+
+
+..HHHTTT..
+..HH--TTT..
+
+..HHHTTT..
+0       8
