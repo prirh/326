@@ -68,6 +68,11 @@ public class CoinTree {
       return;
     }
 
+    if(heads == 2 && tails == 2) {
+      System.out.println("Impossible");
+      return;
+    }
+
     CoinTree coins = new CoinTree(heads, tails);
 
     //   System.out.println(coins.target);

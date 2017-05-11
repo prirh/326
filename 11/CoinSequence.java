@@ -6,7 +6,6 @@ public class CoinSequence {
     List<CoinSequence> children;
     int depth;
     int gaps;
-    int runs;
     CoinSequence parent;
 
     public CoinSequence(String sequence, int depth, int gaps, CoinSequence parent) {
@@ -15,14 +14,6 @@ public class CoinSequence {
         this.gaps = gaps;
         this.children = new ArrayList<CoinSequence>();
         this.parent = parent;
-
-        // for(int i = 0;  i < sequence.length() - 1; i++) {
-        //     if(sequence.charAt(i) == '.' && sequence.charAt(i + 1) == '.') {
-        //         this.gaps++;
-        //     } else if(sequence.charAt(i) == '-' && sequence.charAt(i + 1) == '-') {
-        //         this.gaps++;
-        //     }
-        // }
     }
 
     public int checkChildren(String target) {
@@ -59,6 +50,9 @@ public class CoinSequence {
 
                 s[pairIndex] = '-';
                 s[pairIndex + 1] = '-';
+                if(sequence.length() < 13){
+                    childGaps--;
+                }
                 if(gapIndex == 0) {
                     childSequence += start;
                     childGaps++;
@@ -85,6 +79,7 @@ public class CoinSequence {
 
                 CoinSequence child = new CoinSequence(childSequence, depth + 1, childGaps, this);
                 if(childSequence.equals(target)) return child;
+                int maxGap = 3;
                 if(childGaps <= 3) {
                     if(!children.isEmpty() && child.gaps < children.get(0).gaps) {
                         children.add(0, child);
