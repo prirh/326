@@ -1,36 +1,20 @@
-HHHTTT
-HTHH  TT
-HTHHTT
-HTH  THT
-HTHTHT
-4 moves
+  ..HHHTTT        ..HH (TT)..
+..TTHHHT           ..T THH
+THT..HHT          T..H    HHT
+THTHTH
 
-3 2
-HHHTT
-HTTHH
-HT  HTH
+  ..HHHHTTT
+..TTHHHHTT      ..T THH
+THT..HHHTT      T..H H(HT)
+THTHTHH..T      H..T.. THH
+THTHT..HHT      T..H HHT
+THTHTHTH
+
+..HHHTT       ..H (HT)T
+HTHH..T       H..T.. T(HH)
+HT..HHT       T..H H(HT)
 HTHTH
-3 moves
 
-HHHTT
-HTHH  T
-HTHHT
-HTHTH
-3 moves
-
-HHTTT
-TTHHT
-THT  HT
-THTHT
-
-HHHTTTT
-TTTHHHT
-THTT  HHT
-THTTHHT
-THTHT  HT
-THTHTHT
-
-HHTTT
-01234
-
-HTT
+..HHHHTTT..  ..H TT..
+..TTHHHHT..  ..T (TH)H
+..THTxxHHHT.. TxxH H(HT)

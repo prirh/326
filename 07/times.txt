@@ -1,0 +1,14 @@
+old "actor dog" 5
+real	21m57.365s
+user	21m14.616s
+sys	0m18.457s
+
+"actor" 5
+real	0m2.384s
+user	0m3.466s
+sys	0m0.373s
+
+new "actor dog" 5
+real	0m0.681s
+user	0m1.261s
+sys	0m0.103s
