@@ -1,11 +1,20 @@
-  ..HHHTTT
+  ..HHHTTT        ..HH (TT)..
 ..TTHHHT           ..T THH
 THT..HHT          T..H    HHT
 THTHTH
 
   ..HHHHTTT
 ..TTHHHHTT      ..T THH
-THT..HHHTT      T..H HHT
-THTHTHH..T      H..T THH
+THT..HHHTT      T..H H(HT)
+THTHTHH..T      H..T.. THH
 THTHT..HHT      T..H HHT
 THTHTHTH
+
+..HHHTT       ..H (HT)T
+HTHH..T       H..T.. T(HH)
+HT..HHT       T..H H(HT)
+HTHTH
+
+..HHHHTTT..  ..H TT..
+..TTHHHHT..  ..T (TH)H
+..THTxxHHHT.. TxxH H(HT)
