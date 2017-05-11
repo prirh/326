@@ -27,48 +27,34 @@ public class Coins0 {
     this.tails = tails;
     first = tails < heads ? 'H' : 'T';
     char other = first == 'H' ? 'T' : 'H';
-    target = String(first);
-
-    for(int i = 1; i < heads + tails; i++) {
-      if(i % 2 == 0) target += other;
-      else target += first;
+    target = "";
+    for(int i = 0; i < heads + tails; i++) {
+      if(i % 2 == 0) target += first;
+      else target += other;
     }
+
+    System.out.println(target);
 
     coins = "..";
 
     while(heads > 0) {
       coins += "H";
+      heads--;
     }
     while(tails > 0) {
       coins += "T";
       tails--;
     }
-    coins += ".."
+    coins += "..";
 
-    System.out.println(target);
+
     System.out.println(coins);
   }
 
   public int rearrange() {
     if(heads != tails) {}
+      return 1;
   }
-  /**
-   * @return a string of H and T representing the state of the coins
-   */
-  public String toString(){
-    String line = "";
-    for(int i = 0; i < coins.size(); i++){
-        line = line + coins.get(i) + " ";
-      }
-      return line;
-    }
-    public String toString(List<Character> list){
-      String line = "";
-      for(int i = 0; i < list.size(); i++){
-          line = line + list.get(i) + " ";
-        }
-        return line;
-      }
 
     /**
      * Reads the number of heads and tails from the command line, and prints out
@@ -95,7 +81,5 @@ public class Coins0 {
       }
 
       Coins0 coins = new Coins0(heads, tails);
-      if(show) System.out.println(coins);
-      System.out.println(coins.solve(show) + " moves");
     }
   }
